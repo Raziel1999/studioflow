@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rezervirajte svoj termin u salonu Studioflow — jednostavno, brzo i online."
+    />
+    <meta name="theme-color" content="#f7f5f0" />
+    <title>Studioflow — vrijeme za tebe</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Studioflow, naslovnica">
+        <span class="brand-mark" aria-hidden="true">s</span>
+        <span>studioflow</span>
+      </a>
+      <nav class="main-nav" aria-label="Glavna navigacija">
+        <a href="#usluge">Usluge</a>
+        <a href="#salon">O salonu</a>
+        <a href="#recenzije">Recenzije</a>
+      </nav>
+      <a class="header-cta" href="#rezervacija">Rezerviraj termin <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Otvori navigaciju">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="salon">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> ZAGREB · CENTAR</p>
+          <h1>Vrijeme je za<br />malo <em>vremena</em><br />za sebe.</h1>
+          <p class="hero-description">
+            Dobar osjećaj počinje dobrim terminom. Odaberi uslugu i rezerviraj svoj
+            trenutak mira — bez poziva i čekanja.
+          </p>
+          <a class="button button-dark" href="#rezervacija">
+            Pronađi svoj termin <span aria-hidden="true">↘</span>
+          </a>
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true">
+              <span class="avatar avatar-one">M</span>
+              <span class="avatar avatar-two">L</span>
+              <span class="avatar avatar-three">A</span>
+            </div>
+            <p><strong>4.9/5</strong><span> · voljen od 800+ klijentica</span></p>
+          </div>
+        </div>
+
+        <figure class="hero-gallery">
+          <img
+            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85"
+            alt="Sjajna duga kosa oblikovana u glamurozne valove"
+            fetchpriority="high"
+          />
+          <figcaption><span>SOFT GLAM</span><span class="caption-line"></span><span>STUDIOFLOW</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="booking-section" id="rezervacija">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-dot"></span> ONLINE REZERVACIJA</p>
+            <h2>Tvoj termin,<br /><em>tvoj način.</em></h2>
+          </div>
+          <p class="section-intro">Par klikova i gotovo. Odaberi što ti treba, pronađi vrijeme koje ti odgovara i prepusti ostalo nama.</p>
+        </div>
+
+        <div class="booking-layout">
+          <div class="booking-main">
+            <section class="booking-step" id="usluge" aria-labelledby="service-heading">
+              <div class="step-heading">
+                <span class="step-number">01</span>
+                <div><h3 id="service-heading">Što ćemo danas?</h3><p>Odaberi uslugu koja ti odgovara.</p></div>
+              </div>
+              <div class="service-grid" role="group" aria-label="Odaberi uslugu">
+                <button class="service-card" type="button" data-service="Šišanje i stiliziranje" data-price="35" data-duration="45">
+                  <span class="service-icon" aria-hidden="true">✳</span>
+                  <span class="service-name">Šišanje i stiliziranje</span>
+                  <span class="service-meta">45 min <span>·</span> od 35 €</span>
+                  <span class="service-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="service-card" type="button" data-service="Pranje i feniranje" data-price="25" data-duration="30">
+                  <span class="service-icon" aria-hidden="true">〰</span>
+                  <span class="service-name">Pranje i feniranje</span>
+                  <span class="service-meta">30 min <span>·</span> od 25 €</span>
+                  <span class="service-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="service-card" type="button" data-service="Njega i obnova" data-price="45" data-duration="60">
+                  <span class="service-icon" aria-hidden="true">✿</span>
+                  <span class="service-name">Njega i obnova</span>
+                  <span class="service-meta">60 min <span>·</span> od 45 €</span>
+                  <span class="service-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="service-card" type="button" data-service="Konzultacije" data-price="0" data-duration="20">
+                  <span class="service-icon" aria-hidden="true">☼</span>
+                  <span class="service-name">Konzultacije</span>
+                  <span class="service-meta">20 min <span>·</span> besplatno</span>
+                  <span class="service-check" aria-hidden="true">✓</span>
+                </button>
+              </div>
+            </section>
+
+            <section class="booking-step" aria-labelledby="date-heading">
+              <div class="step-heading">
+                <span class="step-number">02</span>
+                <div><h3 id="date-heading">Kad ti odgovara?</h3><p>Odaberi dan i slobodan termin.</p></div>
+              </div>
+              <div class="date-list" id="date-list" role="group" aria-label="Odaberi datum"></div>
+              <div class="time-heading"><span>DOSTUPNI TERMINI</span><span id="selected-date-label">Prvo odaberi dan</span></div>
+              <div class="time-list" id="time-list" role="group" aria-label="Odaberi vrijeme">
+                <p class="empty-times">Odaberi datum da vidiš slobodne termine.</p>
+              </div>
+            </section>
+
+            <section class="booking-step contact-step" aria-labelledby="contact-heading">
+              <div class="step-heading">
+                <span class="step-number">03</span>
+                <div><h3 id="contact-heading">Kako da te zovemo?</h3><p>Podaci nam trebaju samo za potvrdu termina.</p></div>
+              </div>
+              <form id="booking-form">
+                <div class="form-grid">
+                  <label class="form-field">
+                    <span>Ime i prezime</span>
+                    <input name="name" autocomplete="name" placeholder="npr. Ana Horvat" required />
+                  </label>
+                  <label class="form-field">
+                    <span>E-mail adresa</span>
+                    <input name="email" type="email" autocomplete="email" placeholder="ana@email.com" required />
+                  </label>
+                  <label class="form-field">
+                    <span>Broj telefona</span>
+                    <input name="phone" type="tel" autocomplete="tel" placeholder="+385 91 234 5678" required />
+                  </label>
+                  <label class="form-field">
+                    <span>Željeni stilist <small>(opcionalno)</small></span>
+                    <select name="stylist">
+                      <option value="Bilo tko iz tima">Bilo tko iz tima</option>
+                      <option value="Mia">Mia</option>
+                      <option value="Lana">Lana</option>
+                      <option value="Ana">Ana</option>
+                    </select>
+                  </label>
+                </div>
+                <label class="form-field note-field">
+                  <span>Napomena <small>(opcionalno)</small></span>
+                  <textarea name="note" rows="2" placeholder="Imaš posebnu želju? Reci nam..."></textarea>
+                </label>
+                <p class="form-error" id="form-error" role="alert" hidden></p>
+                <button class="button button-dark submit-button" type="submit" id="submit-button" disabled>
+                  Potvrdi rezervaciju <span aria-hidden="true">↗</span>
+                </button>
+                <p class="privacy-note">Slanjem rezervacije prihvaćaš našu politiku privatnosti. Bez neželjenih poruka, obećavamo.</p>
+              </form>
+            </section>
+          </div>
+
+          <aside class="booking-summary" aria-live="polite">
+            <div class="summary-top"><span>SAŽETAK REZERVACIJE</span><span class="summary-sparkle">✳</span></div>
+            <div class="summary-salon">
+              <div class="summary-logo">s</div>
+              <div><strong>Studioflow</strong><span>Frizerski studio · Zagreb</span></div>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row"><span>Usluga</span><strong id="summary-service">Odaberi uslugu</strong></div>
+            <div class="summary-row"><span>Datum i vrijeme</span><strong id="summary-datetime">Odaberi termin</strong></div>
+            <div class="summary-row"><span>Stilist</span><strong id="summary-stylist">Bilo tko iz tima</strong></div>
+            <div class="summary-divider"></div>
+            <div class="summary-total"><span>Ukupno</span><strong id="summary-price">—</strong></div>
+            <div class="summary-reminder"><span aria-hidden="true">♡</span><p>Trebaš promijeniti planove? Otkazivanje je besplatno do 24 sata prije termina.</p></div>
+            <div class="summary-address"><span class="address-pin" aria-hidden="true">⌖</span><p><strong>Pronađi nas</strong><br />Ilica 42, Zagreb<br />Pon–Sub · 09:00–19:00</p></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="quote-section" id="recenzije">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>Napokon salon u kojem rezervacija traje kraće od odabira outfita.</blockquote>
+        <div class="quote-author"><span class="quote-avatar">I</span><span><strong>Ivana K.</strong><small>klijentica od 2023.</small></span><span class="quote-stars" aria-label="5 od 5 zvjezdica">★★★★★</span></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#" aria-label="Studioflow, naslovnica"><span class="brand-mark" aria-hidden="true">s</span><span>studioflow</span></a>
+      <p>Manje poziva. Više vremena za sebe.</p>
+      <span>© 2026 Studioflow · Napravljeno s pažnjom</span>
+    </footer>
+
+    <dialog class="confirmation-dialog" id="confirmation-dialog" aria-labelledby="confirmation-title">
+      <button class="dialog-close" type="button" aria-label="Zatvori potvrdu">×</button>
+      <div class="confirmation-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow"><span class="eyebrow-dot"></span> REZERVACIJA ZAPRIMLJENA</p>
+      <h2 id="confirmation-title">Vidimo se uskoro,<br /><em id="confirmation-name">Ana</em>!</h2>
+      <p class="confirmation-copy" id="confirmation-details"></p>
+      <p class="demo-notice">Ovo je demo prototip — rezervacija nije poslana salonu.</p>
+      <button class="button button-dark dialog-done" type="button">Gotovo <span aria-hidden="true">↗</span></button>
+    </dialog>
+  </body>
+</html>
