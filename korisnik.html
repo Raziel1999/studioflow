@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f7f5f0" />
+    <meta name="description" content="Demo korisnički račun Studioflowa." />
+    <title>Moj račun | Studioflow</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="site.js" defer></script>
+    <script src="demo-data.js" defer></script>
+    <script src="dashboard.js" defer></script>
+  </head>
+  <body class="account-body">
+    <a class="skip-link" href="#main-content">Preskoči na glavni sadržaj</a>
+    <header class="site-header dashboard-header">
+      <a class="brand" href="index.html" aria-label="Studioflow, naslovnica">
+        <span class="brand-mark" aria-hidden="true">s</span><span>studioflow</span>
+      </a>
+      <nav class="main-nav" id="primary-navigation" aria-label="Glavna navigacija">
+        <a href="korisnik.html" aria-current="page">Moj pregled</a>
+        <a href="cjenik-zene.html">Cjenici</a>
+        <a href="index.html">Javna stranica</a>
+      </nav>
+      <div class="header-account">
+        <span id="account-name">Klijent</span>
+        <button class="logout-button" type="button" data-logout>Odjava</button>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Otvori navigaciju">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main class="dashboard-main" id="main-content" data-required-role="user">
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span> MOJ STUDIOFLOW</p>
+          <h1>Dobrodošla, <em id="welcome-name">Ana</em>.</h1>
+          <p class="dashboard-intro">Ovdje ćeš moći pratiti svoje termine i podatke računa.</p>
+        </div>
+        <span class="role-badge">KLIJENT · DEMO</span>
+      </div>
+
+      <div class="demo-warning dashboard-warning" role="note">
+        <strong>Demo račun — rezervacije se spremaju samo u ovom pregledniku.</strong>
+        <span>To nisu podaci na poslužitelju: rezervacije se ne šalju salonu i nisu dostupne na drugim uređajima ili preglednicima.</span>
+      </div>
+
+      <section class="dashboard-panel" aria-labelledby="user-appointments-heading">
+        <div class="panel-heading user-appointments-heading">
+          <div><p class="eyebrow">TVOJ RASPORED</p><h2 id="user-appointments-heading">Moji termini</h2></div>
+          <a class="button button-dark" href="index.html#rezervacija">Rezerviraj novi termin <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="empty-dashboard" id="user-empty-state">
+          <span class="empty-dashboard-icon" aria-hidden="true">♡</span>
+          <h3>Još nema rezerviranih termina</h3>
+          <p>Kada rezerviraš termin, pojavit će se ovdje.</p>
+        </div>
+        <div class="reservation-list" id="user-reservations" aria-live="polite"></div>
+      </section>
+
+      <section class="dashboard-panel profile-panel" aria-labelledby="profile-heading">
+        <div class="panel-heading"><div><p class="eyebrow">MOJ PROFIL</p><h2 id="profile-heading">Podaci računa</h2></div></div>
+        <dl class="profile-details">
+          <div><dt>Ime</dt><dd id="profile-name">Ana Horvat</dd></div>
+          <div><dt>E-mail</dt><dd id="profile-email">ana@studioflow.hr</dd></div>
+          <div><dt>Vrsta računa</dt><dd>Demo klijent</dd></div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="site-footer account-footer">
+      <a class="brand" href="index.html" aria-label="Studioflow, naslovnica"><span class="brand-mark" aria-hidden="true">s</span><span>studioflow</span></a>
+      <p>Korisničko sučelje · Demo</p>
+      <span>© 2026 Studioflow</span>
+    </footer>
+  </body>
+</html>

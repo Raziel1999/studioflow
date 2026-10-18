@@ -5,31 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Rezervirajte svoj termin u salonu Studioflow — jednostavno, brzo i online."
+      content="Rezerviraj šišanje, bojanje, njegu kose ili kozmetički tretman u Studioflowu, salonu u Zagrebu. Odaberi uslugu i pronađi termin."
     />
     <meta name="theme-color" content="#f7f5f0" />
-    <title>Studioflow — vrijeme za tebe</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Studioflow" />
+    <meta property="og:locale" content="hr_HR" />
+    <meta property="og:title" content="Studioflow — salon i online rezervacije u Zagrebu" />
+    <meta property="og:description" content="Rezerviraj frizersku uslugu ili kozmetički tretman online u nekoliko klikova." />
+    <title>Frizerski salon Zagreb i online rezervacije | Studioflow</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="site.js" defer></script>
+    <script src="demo-data.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Preskoči na glavni sadržaj</a>
     <header class="site-header">
-      <a class="brand" href="#" aria-label="Studioflow, naslovnica">
+      <a class="brand" href="index.html" aria-label="Studioflow, naslovnica">
         <span class="brand-mark" aria-hidden="true">s</span>
         <span>studioflow</span>
       </a>
-      <nav class="main-nav" aria-label="Glavna navigacija">
-        <a href="#usluge">Usluge</a>
-        <a href="#salon">O salonu</a>
-        <a href="#recenzije">Recenzije</a>
+      <nav class="main-nav" id="primary-navigation" aria-label="Glavna navigacija">
+        <a href="index.html" aria-current="page">Početna</a>
+        <a href="cjenik-zene.html">Žene</a>
+        <a href="cjenik-muskarci.html">Muškarci</a>
+        <a href="cjenik-kozmetika.html">Kozmetika</a>
+        <a href="prijava.html">Prijava</a>
       </nav>
       <a class="header-cta" href="#rezervacija">Rezerviraj termin <span aria-hidden="true">↗</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Otvori navigaciju">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Otvori navigaciju">
         <span></span><span></span>
       </button>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero" id="salon">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot"></span> ZAGREB · CENTAR</p>
@@ -53,7 +63,7 @@
 
         <figure class="hero-gallery">
           <img
-            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85"
+            src="images/hair-women.jpg"
             alt="Sjajna duga kosa oblikovana u glamurozne valove"
             fetchpriority="high"
           />
@@ -61,13 +71,13 @@
         </figure>
       </section>
 
-      <section class="booking-section" id="rezervacija">
+      <section class="booking-section" id="rezervacija" aria-labelledby="booking-heading">
         <div class="section-heading">
           <div>
             <p class="eyebrow"><span class="eyebrow-dot"></span> ONLINE REZERVACIJA</p>
-            <h2>Tvoj termin,<br /><em>tvoj način.</em></h2>
+            <h2 id="booking-heading">Tvoj termin,<br /><em>tvoj način.</em></h2>
           </div>
-          <p class="section-intro">Par klikova i gotovo. Odaberi što ti treba, pronađi vrijeme koje ti odgovara i prepusti ostalo nama.</p>
+          <p class="section-intro">Odaberi uslugu za kosu, bradu ili njegu lica, pronađi slobodan termin i rezerviraj svoj trenutak.</p>
         </div>
 
         <div class="booking-layout">
@@ -78,30 +88,26 @@
                 <div><h3 id="service-heading">Što ćemo danas?</h3><p>Odaberi uslugu koja ti odgovara.</p></div>
               </div>
               <div class="service-grid" role="group" aria-label="Odaberi uslugu">
-                <button class="service-card" type="button" data-service="Šišanje i stiliziranje" data-price="35" data-duration="45">
-                  <span class="service-icon" aria-hidden="true">✳</span>
-                  <span class="service-name">Šišanje i stiliziranje</span>
-                  <span class="service-meta">45 min <span>·</span> od 35 €</span>
-                  <span class="service-check" aria-hidden="true">✓</span>
-                </button>
-                <button class="service-card" type="button" data-service="Pranje i feniranje" data-price="25" data-duration="30">
-                  <span class="service-icon" aria-hidden="true">〰</span>
-                  <span class="service-name">Pranje i feniranje</span>
-                  <span class="service-meta">30 min <span>·</span> od 25 €</span>
-                  <span class="service-check" aria-hidden="true">✓</span>
-                </button>
-                <button class="service-card" type="button" data-service="Njega i obnova" data-price="45" data-duration="60">
-                  <span class="service-icon" aria-hidden="true">✿</span>
-                  <span class="service-name">Njega i obnova</span>
-                  <span class="service-meta">60 min <span>·</span> od 45 €</span>
-                  <span class="service-check" aria-hidden="true">✓</span>
-                </button>
-                <button class="service-card" type="button" data-service="Konzultacije" data-price="0" data-duration="20">
-                  <span class="service-icon" aria-hidden="true">☼</span>
-                  <span class="service-name">Konzultacije</span>
-                  <span class="service-meta">20 min <span>·</span> besplatno</span>
-                  <span class="service-check" aria-hidden="true">✓</span>
-                </button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Žensko šišanje — kratka kosa" data-price="28" data-duration="45"><span class="service-icon" aria-hidden="true">✳</span><span class="service-name">Žensko šišanje — kratka kosa</span><span class="service-meta">45 min <span>·</span> 28 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Žensko šišanje — srednja kosa" data-price="34" data-duration="55"><span class="service-icon" aria-hidden="true">✳</span><span class="service-name">Žensko šišanje — srednja kosa</span><span class="service-meta">55 min <span>·</span> 34 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Žensko šišanje — duga kosa" data-price="40" data-duration="65"><span class="service-icon" aria-hidden="true">✳</span><span class="service-name">Žensko šišanje — duga kosa</span><span class="service-meta">65 min <span>·</span> 40 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Feniranje" data-price="25" data-duration="40"><span class="service-icon" aria-hidden="true">〰</span><span class="service-name">Feniranje</span><span class="service-meta">40 min <span>·</span> 25 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Bojanje izrasta" data-price="45" data-duration="90"><span class="service-icon" aria-hidden="true">◉</span><span class="service-name">Bojanje izrasta</span><span class="service-meta">90 min <span>·</span> od 45 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Bojanje cijele dužine" data-price="70" data-duration="120"><span class="service-icon" aria-hidden="true">◉</span><span class="service-name">Bojanje cijele dužine</span><span class="service-meta">120 min <span>·</span> 70 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Pramenovi" data-price="100" data-duration="150"><span class="service-icon" aria-hidden="true">✦</span><span class="service-name">Pramenovi</span><span class="service-meta">150 min <span>·</span> 100 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Balayage i toniranje" data-price="120" data-duration="180"><span class="service-icon" aria-hidden="true">✦</span><span class="service-name">Balayage i toniranje</span><span class="service-meta">180 min <span>·</span> od 120 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Ženske frizure" data-service="Dubinska njega i obnova kose" data-price="25" data-duration="40"><span class="service-icon" aria-hidden="true">✿</span><span class="service-name">Dubinska njega i obnova</span><span class="service-meta">40 min <span>·</span> od 25 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Muške frizure" data-service="Muško šišanje" data-price="22" data-duration="30"><span class="service-icon" aria-hidden="true">✂</span><span class="service-name">Muško šišanje</span><span class="service-meta">30 min <span>·</span> 22 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Muške frizure" data-service="Fade šišanje" data-price="25" data-duration="40"><span class="service-icon" aria-hidden="true">✂</span><span class="service-name">Fade šišanje</span><span class="service-meta">40 min <span>·</span> 25 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Muške frizure" data-service="Šišanje mašinicom" data-price="16" data-duration="20"><span class="service-icon" aria-hidden="true">✂</span><span class="service-name">Šišanje mašinicom</span><span class="service-meta">20 min <span>·</span> 16 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Muške frizure" data-service="Oblikovanje brade" data-price="14" data-duration="20"><span class="service-icon" aria-hidden="true">✧</span><span class="service-name">Oblikovanje brade</span><span class="service-meta">20 min <span>·</span> 14 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Muške frizure" data-service="Šišanje i oblikovanje brade" data-price="32" data-duration="50"><span class="service-icon" aria-hidden="true">✂</span><span class="service-name">Šišanje i oblikovanje brade</span><span class="service-meta">50 min <span>·</span> 32 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Kozmetički tretmani" data-service="Osnovno čišćenje lica" data-price="48" data-duration="60"><span class="service-icon" aria-hidden="true">☼</span><span class="service-name">Osnovno čišćenje lica</span><span class="service-meta">60 min <span>·</span> 48 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Kozmetički tretmani" data-service="Hidratantna njega lica" data-price="58" data-duration="60"><span class="service-icon" aria-hidden="true">☼</span><span class="service-name">Hidratantna njega lica</span><span class="service-meta">60 min <span>·</span> 58 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Kozmetički tretmani" data-service="Anti-age njega lica" data-price="72" data-duration="75"><span class="service-icon" aria-hidden="true">☼</span><span class="service-name">Anti-age njega lica</span><span class="service-meta">75 min <span>·</span> 72 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Kozmetički tretmani" data-service="Oblikovanje i bojanje obrva" data-price="23" data-duration="30"><span class="service-icon" aria-hidden="true">❋</span><span class="service-name">Oblikovanje i bojanje obrva</span><span class="service-meta">30 min <span>·</span> 23 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Kozmetički tretmani" data-service="Lash lift i bojanje" data-price="45" data-duration="60"><span class="service-icon" aria-hidden="true">❋</span><span class="service-name">Lash lift i bojanje</span><span class="service-meta">60 min <span>·</span> 45 €</span><span class="service-check" aria-hidden="true">✓</span></button>
+                <button class="service-card" type="button" data-category="Konzultacije" data-service="Konzultacije" data-price="0" data-duration="20"><span class="service-icon" aria-hidden="true">☼</span><span class="service-name">Konzultacije</span><span class="service-meta">20 min <span>·</span> besplatno</span><span class="service-check" aria-hidden="true">✓</span></button>
               </div>
             </section>
 
@@ -115,6 +121,7 @@
               <div class="time-list" id="time-list" role="group" aria-label="Odaberi vrijeme">
                 <p class="empty-times">Odaberi datum da vidiš slobodne termine.</p>
               </div>
+              <p class="booking-requirements">Dostupnost uračunava 5 minuta za pospremanje i dodatnih 8 minuta odmora odabrane djelatnice nakon svake usluge.</p>
             </section>
 
             <section class="booking-step contact-step" aria-labelledby="contact-heading">
@@ -151,26 +158,28 @@
                   <textarea name="note" rows="2" placeholder="Imaš posebnu želju? Reci nam..."></textarea>
                 </label>
                 <p class="form-error" id="form-error" role="alert" hidden></p>
-                <button class="button button-dark submit-button" type="submit" id="submit-button" disabled>
+                <button class="button button-dark submit-button" type="submit" id="submit-button" aria-describedby="booking-requirements" disabled>
                   Potvrdi rezervaciju <span aria-hidden="true">↗</span>
                 </button>
-                <p class="privacy-note">Slanjem rezervacije prihvaćaš našu politiku privatnosti. Bez neželjenih poruka, obećavamo.</p>
+                <p class="booking-requirements" id="booking-requirements">Za potvrdu odaberi uslugu, datum i vrijeme te ispuni obavezna polja označena kao obavezna.</p>
+                <p class="booking-requirements" id="booking-login-note">Za spremanje rezervacije prijavi se kao demo klijent. <a href="prijava.html">Prijava za klijente</a></p>
+                <p class="privacy-note">Demo rezervacije spremaju se samo u ovom pregledniku, ne šalju se salonu.</p>
               </form>
             </section>
           </div>
 
-          <aside class="booking-summary" aria-live="polite">
+          <aside class="booking-summary" aria-label="Sažetak rezervacije">
             <div class="summary-top"><span>SAŽETAK REZERVACIJE</span><span class="summary-sparkle">✳</span></div>
             <div class="summary-salon">
-              <div class="summary-logo">s</div>
+              <div class="summary-logo" aria-hidden="true">s</div>
               <div><strong>Studioflow</strong><span>Frizerski studio · Zagreb</span></div>
             </div>
             <div class="summary-divider"></div>
-            <div class="summary-row"><span>Usluga</span><strong id="summary-service">Odaberi uslugu</strong></div>
-            <div class="summary-row"><span>Datum i vrijeme</span><strong id="summary-datetime">Odaberi termin</strong></div>
+            <div class="summary-row"><span>Usluga</span><strong id="summary-service" aria-live="polite">Odaberi uslugu</strong></div>
+            <div class="summary-row"><span>Datum i vrijeme</span><strong id="summary-datetime" aria-live="polite">Odaberi termin</strong></div>
             <div class="summary-row"><span>Stilist</span><strong id="summary-stylist">Bilo tko iz tima</strong></div>
             <div class="summary-divider"></div>
-            <div class="summary-total"><span>Ukupno</span><strong id="summary-price">—</strong></div>
+            <div class="summary-total"><span>Ukupno</span><strong id="summary-price" aria-live="polite">—</strong></div>
             <div class="summary-reminder"><span aria-hidden="true">♡</span><p>Trebaš promijeniti planove? Otkazivanje je besplatno do 24 sata prije termina.</p></div>
             <div class="summary-address"><span class="address-pin" aria-hidden="true">⌖</span><p><strong>Pronađi nas</strong><br />Ilica 42, Zagreb<br />Pon–Sub · 09:00–19:00</p></div>
           </aside>
@@ -185,7 +194,7 @@
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="#" aria-label="Studioflow, naslovnica"><span class="brand-mark" aria-hidden="true">s</span><span>studioflow</span></a>
+      <a class="brand" href="index.html" aria-label="Studioflow, naslovnica"><span class="brand-mark" aria-hidden="true">s</span><span>studioflow</span></a>
       <p>Manje poziva. Više vremena za sebe.</p>
       <span>© 2026 Studioflow · Napravljeno s pažnjom</span>
     </footer>
@@ -195,8 +204,8 @@
       <div class="confirmation-icon" aria-hidden="true">✓</div>
       <p class="eyebrow"><span class="eyebrow-dot"></span> REZERVACIJA ZAPRIMLJENA</p>
       <h2 id="confirmation-title">Vidimo se uskoro,<br /><em id="confirmation-name">Ana</em>!</h2>
-      <p class="confirmation-copy" id="confirmation-details"></p>
-      <p class="demo-notice">Ovo je demo prototip — rezervacija nije poslana salonu.</p>
+      <p class="confirmation-copy" id="confirmation-details" aria-live="polite"></p>
+      <p class="demo-notice">Demo rezervacija spremljena je samo u ovom pregledniku — nije poslana salonu.</p>
       <button class="button button-dark dialog-done" type="button">Gotovo <span aria-hidden="true">↗</span></button>
     </dialog>
   </body>

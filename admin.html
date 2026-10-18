@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f7f5f0" />
+    <meta name="description" content="Demo salonsko sučelje Studioflowa." />
+    <title>Salonsko sučelje | Studioflow</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="site.js" defer></script>
+    <script src="demo-data.js" defer></script>
+    <script src="dashboard.js" defer></script>
+  </head>
+  <body class="account-body">
+    <a class="skip-link" href="#main-content">Preskoči na glavni sadržaj</a>
+    <header class="site-header dashboard-header">
+      <a class="brand" href="index.html" aria-label="Studioflow, naslovnica">
+        <span class="brand-mark" aria-hidden="true">s</span><span>studioflow</span>
+      </a>
+      <nav class="main-nav" id="primary-navigation" aria-label="Glavna navigacija">
+        <a href="admin.html" aria-current="page">Pregled</a>
+        <a href="cjenik-zene.html">Cjenici</a>
+        <a href="index.html">Javna stranica</a>
+      </nav>
+      <div class="header-account">
+        <span id="account-name">Salon</span>
+        <button class="logout-button" type="button" data-logout>Odjava</button>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Otvori navigaciju">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main class="dashboard-main" id="main-content" data-required-role="admin">
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span> SALONSKO SUČELJE</p>
+          <h1>Pozdrav, <em id="welcome-name">Mia</em>.</h1>
+          <p class="dashboard-intro">Dobrodošli u demo pregled Studioflow salona.</p>
+        </div>
+        <span class="role-badge">ADMIN · DEMO</span>
+      </div>
+
+      <div class="demo-warning dashboard-warning" role="note">
+        <strong>Demo podaci — rezervacije su spremljene samo u ovom pregledniku.</strong>
+        <span>Ovaj prikaz nije povezan s bazom ni s klijentovim drugim uređajima; rezervacije nisu poslane salonu.</span>
+      </div>
+
+      <section class="dashboard-stats" aria-label="Pregled salona">
+        <article class="stat-card"><span>Rezervacije danas</span><strong id="today-count">0</strong><small>Demo podaci</small></article>
+        <article class="stat-card"><span>Predstojeći termini</span><strong id="upcoming-count">0</strong><small>U ovom pregledniku</small></article>
+        <article class="stat-card"><span>Dostupni cjenici</span><strong>3</strong><small>Žene · muškarci · kozmetika</small></article>
+      </section>
+
+      <section class="dashboard-panel" aria-labelledby="schedule-heading">
+        <div class="panel-heading">
+          <div><p class="eyebrow">RASPORED TIMA</p><h2 id="schedule-heading">Cijeli dnevni raspored</h2></div>
+          <div class="schedule-date-controls">
+            <button class="schedule-day-button" id="schedule-previous-day" type="button" aria-label="Prethodni dan">←</button>
+            <label class="sr-only" for="schedule-date">Datum rasporeda</label>
+            <input id="schedule-date" type="date" />
+            <button class="schedule-day-button" id="schedule-next-day" type="button" aria-label="Sljedeći dan">→</button>
+          </div>
+        </div>
+        <p class="schedule-key">Nakon svake usluge je 5 min za pospremanje i 8 min odmora prije sljedeće klijentice.</p>
+        <div class="schedule-table-wrap">
+          <table class="schedule-table">
+            <caption class="sr-only">Dnevna dostupnost svake djelatnice u salonu</caption>
+            <thead><tr><th scope="col">Vrijeme</th><th scope="col">Mia</th><th scope="col">Lana</th><th scope="col">Ana</th></tr></thead>
+            <tbody id="schedule-grid"></tbody>
+          </table>
+        </div>
+        <div class="schedule-legend" aria-label="Legenda rasporeda">
+          <span><i class="legend-dot schedule-available"></i> Slobodno</span>
+          <span><i class="legend-dot schedule-busy"></i> Rezervirano</span>
+          <span><i class="legend-dot schedule-cleanup"></i> Pospremanje</span>
+          <span><i class="legend-dot schedule-break"></i> Odmor</span>
+        </div>
+      </section>
+
+      <section class="dashboard-panel" aria-labelledby="admin-booking-heading">
+        <div class="panel-heading">
+          <div><p class="eyebrow">RUČNI UPIS</p><h2 id="admin-booking-heading">Interna rezervacija</h2></div>
+        </div>
+        <p class="schedule-key">Upiši termin za sebe ili osobu koju naručuješ u salon. I ovaj termin zauzima vrijeme za pospremanje i odmor odabrane djelatnice.</p>
+        <form class="admin-booking-form" id="admin-booking-form">
+          <label class="form-field"><span>Usluga</span><select name="service" id="admin-booking-service" required></select></label>
+          <label class="form-field"><span>Djelatnica</span><select name="stylist" id="admin-booking-stylist" required></select></label>
+          <label class="form-field"><span>Datum</span><input name="date" id="admin-booking-date" type="date" required /></label>
+          <label class="form-field"><span>Vrijeme</span><select name="time" id="admin-booking-time" required></select></label>
+          <label class="form-field"><span>Ime klijenta</span><input name="name" autocomplete="name" required /></label>
+          <label class="form-field"><span>E-mail <small>(opcionalno)</small></span><input name="email" type="email" autocomplete="email" /></label>
+          <label class="form-field"><span>Telefon <small>(opcionalno)</small></span><input name="phone" type="tel" autocomplete="tel" /></label>
+          <label class="form-field"><span>Napomena <small>(opcionalno)</small></span><input name="note" /></label>
+          <p class="form-error admin-booking-error" id="admin-booking-error" role="alert" hidden></p>
+          <p class="admin-booking-success" id="admin-booking-success" role="status" hidden>Interna rezervacija je spremljena i dodana u raspored.</p>
+          <button class="button button-dark admin-booking-submit" type="submit">Spremi internu rezervaciju <span aria-hidden="true">↗</span></button>
+        </form>
+      </section>
+
+      <section class="dashboard-panel" aria-labelledby="appointments-heading">
+        <div class="panel-heading"><div><p class="eyebrow">RASPORED</p><h2 id="appointments-heading">Rezervacije klijenata</h2></div><span class="panel-date" id="admin-date-label">Danas</span></div>
+        <div class="empty-dashboard" id="admin-empty-state">
+          <span class="empty-dashboard-icon" aria-hidden="true">◷</span>
+          <h3>Još nema rezervacija</h3>
+          <p>Rezervacije napravljene u ovom pregledniku pojavit će se ovdje.</p>
+        </div>
+        <div class="reservation-list" id="admin-reservations" aria-live="polite"></div>
+      </section>
+
+      <section class="dashboard-panel" aria-labelledby="admin-actions-heading">
+        <div class="panel-heading"><div><p class="eyebrow">BRZI PRISTUP</p><h2 id="admin-actions-heading">Upravljanje salonom</h2></div></div>
+        <div class="dashboard-links">
+          <a href="cjenik-zene.html"><span aria-hidden="true">✳</span><span><strong>Ženski cjenik</strong><small>Pregled usluga i orijentacijskih cijena</small></span><span aria-hidden="true">↗</span></a>
+          <a href="cjenik-muskarci.html"><span aria-hidden="true">✂</span><span><strong>Muški cjenik</strong><small>Pregled šišanja i njege brade</small></span><span aria-hidden="true">↗</span></a>
+          <a href="cjenik-kozmetika.html"><span aria-hidden="true">❋</span><span><strong>Kozmetički tretmani</strong><small>Pregled tretmana lica i obrva</small></span><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer account-footer">
+      <a class="brand" href="index.html" aria-label="Studioflow, naslovnica"><span class="brand-mark" aria-hidden="true">s</span><span>studioflow</span></a>
+      <p>Salonsko sučelje · Demo</p>
+      <span>© 2026 Studioflow</span>
+    </footer>
+  </body>
+</html>
